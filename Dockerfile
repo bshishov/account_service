@@ -27,5 +27,7 @@ EXPOSE $PORT
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["help"]
+#ENTRYPOINT ["/docker-entrypoint.sh"]
+#CMD ["help"]
+
+CMD python -m account_service.wsgi --port $PORT
