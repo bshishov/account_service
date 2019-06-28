@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+  accountservice:
+    build: .
+    environment:
+      PORT: ${PORT:-8000}
+    command: run
+    restart: always
+    ports:
+      - {PORT:-8000}:8089
+    expose:
+      - {PORT:-8000}
+    networks:
+      - webproxy
+
+networks:
+  webproxy:
+    external:
+      name: ${COGNITIVE_NETWORK:-bridge}
