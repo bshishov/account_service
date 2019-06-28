@@ -4,13 +4,13 @@ services:
   accountservice:
     build: .
     environment:
-      PORT: ${PORT:-8000}
+      PORT: ${PORT:-8089}
     command: run
     restart: always
     ports:
-      - {PORT:-8000}:8089
+      - ${PORT:-8089}:8089
     expose:
-      - {PORT:-8000}
+      - ${PORT:-8089}
     networks:
       - webproxy
 
